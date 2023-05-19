@@ -32,26 +32,43 @@ namespace WpfApp1
             {
                 "😊","😊",
                 "😒","😒",
-                "🤦","🤦‍",
+                "🚗","‍🚗",
                 "😘","😘",
                 "😎","😎",
                 "🧔","🧔",
-                "👳‍","👳‍",
+                "‍🦼","🦼",
                 "👮‍","👮",
 
             };
 
             Random random = new Random();
-
-            foreach(TextBlock textBlock in mainGrid.Children.OfType<TextBlock>())
+            var list = mainGrid.Children.OfType<TextBlock>().ToList();
+            foreach(var item in list )
             {
                 int index = random.Next(animalEmoji.Count);
                 string nextMoji = animalEmoji[index];
-                textBlock.Text = nextMoji;
+                item.Text = nextMoji;
                 animalEmoji.RemoveAt(index);
             }
+            //var currentgridindex = 0;
+            //for (int j = 0; j < animalEmoji.Count; j = 0)
+            //{
+            //    int index = random.Next(animalEmoji.Count);
+            //    string nextMoji = animalEmoji[index];
+            //    list[currentgridindex++].Text = nextMoji;
+            //    animalEmoji.RemoveAt(index);
+            //    for (int i = 0; i < animalEmoji.Count; i++)
+            //    {
+            //        if (nextMoji == animalEmoji[i])
+            //        {
+            //            list[currentgridindex++].Text = animalEmoji[i];
 
-            
+            //            animalEmoji.RemoveAt(i);
+            //        }
+            //    }
+            //}
+
+
         }
     }
 }
